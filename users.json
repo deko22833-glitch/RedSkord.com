@@ -1,0 +1,107 @@
+[
+  {
+    "id": "7d6c0c1e083142282d591498b18d7370",
+    "username": "Paradox",
+    "email": "",
+    "passwordHash": "3b6606ec9126ca617847fedce15ec8dbe97ac6c6c80acac0eb8cae889456f91f",
+    "friends": [],
+    "friendRequests": [
+      "7890ee70ac77a84ab78b4c05fee2309e"
+    ],
+    "createdAt": "2025-11-05T18:53:34.195Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "773a2372c6c0547a0e1882ab056790e3",
+    "username": "LolDeko",
+    "email": "",
+    "passwordHash": "06b2bacee8ae2be2d37fc9bc7fc55b84b7b0a6c37130394c37d40d50855af568",
+    "friends": [],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T18:56:27.399Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "e147438a138499c445835b68abd0b804",
+    "username": "LolDeko4743",
+    "email": "",
+    "passwordHash": "06b2bacee8ae2be2d37fc9bc7fc55b84b7b0a6c37130394c37d40d50855af568",
+    "friends": [],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T18:56:41.877Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "6b7263fa2210386fae470d911f0710e3",
+    "username": "Paradox228",
+    "email": "",
+    "passwordHash": "06b2bacee8ae2be2d37fc9bc7fc55b84b7b0a6c37130394c37d40d50855af568",
+    "friends": [],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T18:56:59.167Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "0f61562348c0ba0418c3f5d515ebc8c9",
+    "username": "RedSkordSap",
+    "email": "",
+    "passwordHash": "b5efc49484792a3e0bbbf17c72bad3b41f3be2133a2c3b3348a45e38a400bb33",
+    "friends": [],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T18:57:31.844Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "35dec7206694573656833c86ce67519d",
+    "username": "Lolkok",
+    "email": "",
+    "passwordHash": "e43d713b6c0e721f80d5f0b7eebe0aa9f7d7fa5c176039891c4b03c8428889af",
+    "friends": [],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T19:01:52.867Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "97a5625a09d2ac9ea84f86cbf5a68efa",
+    "username": "Paradox1",
+    "email": "",
+    "passwordHash": "fec432f56fc2507d26e91b44f8c2c879fc5c18f04248bbbfd9fa7112ba4838ac",
+    "friends": [],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T19:04:40.780Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "090eae9a6a86337722c8b135ad39ea9a",
+    "username": "Talent",
+    "email": "",
+    "passwordHash": "c55964acc5870292a6215814d60c4643b8b95f12fbb8fa8691def4d389ce0940",
+    "friends": [
+      "7890ee70ac77a84ab78b4c05fee2309e"
+    ],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T19:05:30.900Z",
+    "status": "offline",
+    "avatar": null
+  },
+  {
+    "id": "7890ee70ac77a84ab78b4c05fee2309e",
+    "username": "ParadoxCoder",
+    "email": "",
+    "passwordHash": "f54ff5c7a4d551daa1373285d4c1d40903030970a1ee686b143e3a824f22b960",
+    "friends": [
+      "090eae9a6a86337722c8b135ad39ea9a"
+    ],
+    "friendRequests": [],
+    "createdAt": "2025-11-05T19:14:16.811Z",
+    "status": "online",
+    "avatar": null
+  }
+]

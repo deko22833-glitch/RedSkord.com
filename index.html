@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redskord</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Экран авторизации/регистрации -->
+    <div class="auth-screen" id="authScreen">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h1>🔴 Redskord</h1>
+                <p>Добро пожаловать обратно!</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="loginTab">Вход</button>
+                <button class="tab-btn" id="registerTab">Регистрация</button>
+            </div>
+
+            <div class="auth-form" id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Имя пользователя" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" required>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe" checked>
+                    <label for="rememberMe">Запомнить меня</label>
+                </div>
+                <button id="loginBtn" class="auth-button">Войти</button>
+                <div class="auth-error" id="loginError"></div>
+            </div>
+
+            <div class="auth-form" id="registerForm" style="display: none;">
+                <input type="text" id="registerUsername" placeholder="Имя пользователя (3-20 символов)" required minlength="3" maxlength="20">
+                <input type="email" id="registerEmail" placeholder="Email (необязательно)">
+                <input type="password" id="registerPassword" placeholder="Пароль (минимум 6 символов)" required minlength="6">
+                <input type="password" id="registerPasswordConfirm" placeholder="Подтвердите пароль" required minlength="6">
+                <div class="password-strength" id="passwordStrength"></div>
+                <button id="registerBtn" class="auth-button">Зарегистрироваться</button>
+                <div class="auth-error" id="registerError"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основное приложение -->
+    <div class="app-container" id="appContainer" style="display: none;">
+        <!-- Левая панель - серверы/каналы -->
+        <div class="servers-panel">
+            <div class="server-icon active">
+                <span>🔴</span>
+            </div>
+        </div>
+
+        <!-- Панель каналов -->
+        <div class="channels-panel">
+            <div class="channels-header">
+                <h2>Redskord</h2>
+            </div>
+            
+            <div class="channels-section">
+                <div class="section-header">
+                    <span>ОБЩИЙ ЧАТ</span>
+                </div>
+                <div class="channel-item active" data-channel="general">
+                    <span>#</span> общий-чат
+                </div>
+            </div>
+
+            <div class="channels-section">
+                <div class="section-header">
+                    <span>ЛИЧНЫЕ СООБЩЕНИЯ</span>
+                </div>
+                <div id="friendsList"></div>
+            </div>
+        </div>
+
+        <!-- Основная область чата -->
+        <div class="chat-area">
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <span class="hash-icon">#</span>
+                    <h3 id="chatTitle">общий-чат</h3>
+                </div>
+                <div class="chat-header-right">
+                    <button class="header-btn" id="addFriendBtn" title="Добавить друга">
+                        <span>👤</span>
+                        <span class="friend-requests-badge" id="friendRequestsBadge" style="display: none;">0</span>
+                    </button>
+                    <div class="call-buttons-group" id="callButtonsGroup" style="display: none;">
+                        <button class="header-btn" id="voiceCallBtn" title="Голосовой звонок">
+                            <span>🎤</span>
+                        </button>
+                        <button class="header-btn" id="videoCallBtn" title="Видеозвонок">
+                            <span>📹</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="messages-area" id="messagesArea">
+                <div class="welcome-message">
+                    <h2>Добро пожаловать в #общий-чат!</h2>
+                    <p>Это начало канала #общий-чат</p>
+                </div>
+            </div>
+
+            <div class="message-input-wrapper">
+                <div class="message-input-container">
+                    <button id="voiceMessageBtn" class="voice-btn" title="Голосовое сообщение">
+                        <span>🎤</span>
+                    </button>
+                    <input type="text" id="messageInput" placeholder="Напишите сообщение в #общий-чат" maxlength="2000">
+                    <button id="sendBtn" class="send-button">Отправить</button>
+                </div>
+                <div class="voice-recording" id="voiceRecording" style="display: none;">
+                    <div class="recording-indicator">
+                        <span class="recording-dot"></span>
+                        <span id="recordingTime">00:00</span>
+                    </div>
+                    <button id="stopRecordingBtn" class="stop-recording-btn">Остановить</button>
+                    <button id="sendVoiceBtn" class="send-voice-btn">Отправить</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая панель - пользователи -->
+        <div class="users-panel">
+            <div class="users-header">
+                <span>УЧАСТНИКИ</span>
+            </div>
+            <div class="users-list" id="usersList">
+                <!-- Список пользователей -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно добавления друга -->
+    <div class="modal" id="addFriendModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Добавить друга</h3>
+                <button class="modal-close" id="closeAddFriendModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="searchUserInput" placeholder="Введите имя пользователя">
+                <div id="searchResults"></div>
+                <div class="friend-requests" id="friendRequests">
+                    <h4>Запросы в друзья</h4>
+                    <div id="friendRequestsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно звонка -->
+    <div class="call-modal" id="callModal" style="display: none;">
+        <div class="call-modal-content">
+            <div id="callStatus"></div>
+            <div class="video-container" id="videoContainer" style="display: none;">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <video id="remoteVideo" autoplay playsinline></video>
+            </div>
+            <div class="voice-container" id="voiceContainer">
+                <div class="voice-avatar" id="voiceAvatar"></div>
+                <div class="voice-name" id="voiceName"></div>
+            </div>
+            <div class="call-buttons">
+                <button id="shareScreenBtn" class="toggle-btn" title="Демонстрация экрана">
+                    <span>🖥️</span>
+                </button>
+                <button id="toggleVideoBtn" class="toggle-btn" style="display: none;" title="Включить видео">
+                    <span>📹</span>
+                </button>
+                <button id="toggleMuteBtn" class="toggle-btn" title="Выключить микрофон">
+                    <span>🔇</span>
+                </button>
+                <button id="endCallBtn" class="end-call-btn">📞 Завершить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомление о входящем звонке -->
+    <div class="incoming-call-modal" id="incomingCallModal" style="display: none;">
+        <div class="incoming-call-content">
+            <div id="incomingCallIcon" class="incoming-call-icon">📞</div>
+            <h3 id="incomingCallTitle">Входящий звонок</h3>
+            <p id="callerName"></p>
+            <div class="incoming-call-buttons">
+                <button id="answerCallBtn" class="answer-btn">✅ Принять</button>
+                <button id="rejectCallBtn" class="reject-btn">❌ Отклонить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

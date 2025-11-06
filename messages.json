@@ -1,0 +1,27 @@
+{
+  "090eae9a6a86337722c8b135ad39ea9a_7890ee70ac77a84ab78b4c05fee2309e": [
+    {
+      "id": "aa6b98cd0148de9a010dfe75c9c309ca",
+      "fromUserId": "090eae9a6a86337722c8b135ad39ea9a",
+      "toUserId": "7890ee70ac77a84ab78b4c05fee2309e",
+      "text": "Хуила",
+      "timestamp": "2025-11-05T19:30:00.842Z"
+    },
+    {
+      "id": "74f30162fcfe87def74a558325dcda7f",
+      "fromUserId": "090eae9a6a86337722c8b135ad39ea9a",
+      "toUserId": "7890ee70ac77a84ab78b4c05fee2309e",
+      "text": "Р",
+      "timestamp": "2025-11-05T19:40:09.175Z"
+    },
+    {
+      "id": "456312f2a0f0b5d9ffe260cb4be3a318",
+      "fromUserId": "7890ee70ac77a84ab78b4c05fee2309e",
+      "toUserId": "090eae9a6a86337722c8b135ad39ea9a",
+      "text": "а",
+      "voiceMessage": null,
+      "voiceDuration": null,
+      "timestamp": "2025-11-05T19:43:29.410Z"
+    }
+  ]
+}

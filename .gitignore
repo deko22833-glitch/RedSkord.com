@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.env
+build/
+data/
+cloudflared*
+.git/
+# Исключаем только служебные bat файлы, но оставляем полезные
+# start-server.bat, deploy-to-github.bat и другие важные скрипты будут включены

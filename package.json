@@ -1,0 +1,52 @@
+{
+  "name": "redskord-messenger",
+  "version": "1.0.0",
+  "description": "Redskord Messenger - локальный мессенджер с чатами и звонками",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "electron": "electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win"
+  },
+  "keywords": ["messenger", "chat", "voip"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.0",
+    "nat-upnp": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "ngrok": "^5.0.0-beta.2"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "nodemon": "^3.0.1"
+  },
+  "build": {
+    "appId": "com.redskord.messenger",
+    "productName": "Redskord Messenger",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "files": [
+      "server/**/*",
+      "client/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "server",
+        "to": "server"
+      }
+    ]
+  }
+}
+
